@@ -10,12 +10,39 @@ function convertToRoman(num) {
     };
 
   //your code here
-	return `${obj[4][0]}${obj[4][0]}${obj[4][0]}${obj[5][0]}${obj[6][0]}`;
+	 if (num === 0) return "";
 
+  const values = [
+    [1000, "M"],
+    [900, "CM"],
+    [500, "D"],
+    [400, "CD"],
+    [100, "C"],
+    [90, "XC"],
+    [50, "L"],
+    [40, "XL"],
+    [10, "X"],
+    [9, "IX"],
+    [5, "V"],
+    [4, "IV"],
+    [1, "I"]
+  ];
+
+  let ans = "";
+
+  for (let [value, symbol] of values) {
+    while (num >= value) {
+      ans += symbol;
+      num -= value;
+    }
+  }
+
+  return ans;
 }
+	
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
- console.log(convertToRoman(36));
+ //console.log(convertToRoman(36));
 
 
 
